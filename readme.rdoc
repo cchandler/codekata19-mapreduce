@@ -1,0 +1,48 @@
+= Code Kata 19
+
+The full Kata is available at (http://codekata.pragprog.com/2007/01/kata_nineteen_w.html).
+
+This implementation is a fully functional MapReduce job for Hadoop that does both graph generation and breadth-first search in parallel. It should work correctly in fully-distributed mode.
+
+Since this can execute in fully-distributed mode, rather than compute single source-destinations this implementation will calculate the single source, all-destination pairs shortest path. The output of search mode is a listing of ALL reachable destinations and the shortest-paths to them.
+
+== Building
+
+Just use Maven :-)
+
+  mvn package
+
+== Usage
+
+You'll need a word list, which is just a text file with one word per line.  You'll also need to copy that word list into HDFS before starting.
+
+This will take the word list and generate the graph representation of the data.
+
+  bin/hadoop jar codekata19-1.0-SNAPSHOT.jar graph /location/wordlist.txt /location/graph_output
+
+Right now in order to specify which start word you want you'll need to edit the graph location and set a distance of zero on the node(word) you want to start at and change it's color to "GRAY" (in caps).  When done, just copy the part file back into HDFS where you found it.
+
+So if you want to start on "air", change:
+
+  air     sir,ail,aim,aid,fir,|-1|WHITE|
+
+to
+
+  air     sir,ail,aim,aid,fir,|0|GRAY|
+
+Then execute the jar with:
+
+  bin/hadoop jar ~/codekata19-1.0-SNAPSHOT.jar search /location/graph_output /location/search_output
+
+
+== Dear God why?!
+
+Because sometimes implementing something in a single-process space is boring. Learning to think in fully-distributed MapReduce is a worthwhile effort too!
+
+== Meta
+
+Written by Chris Chandler(http://chrischandler.name) of Flatterline(http://flatterline.com)
+
+Released under the MIT License: http://www.opensource.org/licenses/mit-license.php
+
+Main page: http://github.com/cchandler/codekata19-mapreduce
