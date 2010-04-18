@@ -14,7 +14,7 @@ Just use Maven :-)
 
 == Usage
 
-You'll need a word list, which is just a text file with one word per line.  You'll also need to copy that word list into HDFS before starting.
+You'll need a word list, which is just a text file with one word per line.  You'll also need to copy that word list into HDFS before starting.  For testing/playing I used the wordlist made available by SIL at (http://www.sil.org/linguistics/wordlists/english/)
 
 This will take the word list and generate the graph representation of the data.
 
@@ -46,3 +46,7 @@ Written by Chris Chandler(http://chrischandler.name) of Flatterline(http://flatt
 Released under the MIT License: http://www.opensource.org/licenses/mit-license.php
 
 Main page: http://github.com/cchandler/codekata19-mapreduce
+
+== Thanks
+
+I'm using a similar graph representation to the one I found proposed by Cailin at (http://www.johnandcailin.com/blog/cailin/breadth-first-graph-search-using-iterative-map-reduce-algorithm).
