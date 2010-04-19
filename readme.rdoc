@@ -2,6 +2,8 @@
 
 The full Kata is available at (http://codekata.pragprog.com/2007/01/kata_nineteen_w.html).
 
+My longer explanation is on my blog (http://chrischandler.name/java/code-kata-19-as-a-mapreduce-job-for-hadoop/).
+
 This implementation is a fully functional MapReduce job for Hadoop that does both graph generation and breadth-first search in parallel. It should work correctly in fully-distributed mode.
 
 Since this can execute in fully-distributed mode, rather than compute single source-destinations this implementation will calculate the single source, all-destination pairs shortest path. The output of search mode is a listing of ALL reachable destinations and the shortest-paths to them.
